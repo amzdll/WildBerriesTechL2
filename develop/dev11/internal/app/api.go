@@ -13,7 +13,7 @@ type Handler interface {
 func (a *App) initAPI() {
 	mux := http.NewServeMux()
 	handlers := map[string]Handler{
-		"/": event.New(a.db),
+		"/": event.New(),
 	}
 
 	for path, handler := range handlers {

@@ -3,15 +3,16 @@ package api
 import (
 	"l2/develop/dev11/internal/event/service"
 	"net/http"
+	"time"
 )
 
 type Service interface {
-	CreateDayEvent(event service.Event) error
-	GetDayEvents()
-	GetWeekEvents()
-	GetMonthEvents()
-	UpdateDayEvent()
-	DeleteDayEvent()
+	CreateDayEvent(e service.Event) error
+	GetDayEvents(userId int, date time.Time) ([]service.Event, error)
+	GetWeekEvents(userId int, date time.Time) ([]service.Event, error)
+	GetMonthEvents(userId int, date time.Time) ([]service.Event, error)
+	UpdateDayEvent(e service.Event) error
+	DeleteDayEvent(e service.Event) error
 }
 
 type Handler struct {

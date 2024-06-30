@@ -2,7 +2,7 @@ package app
 
 import (
 	"fmt"
-	"l2/develop/dev11/internal/db"
+	"l2/develop/dev11/internal/event/db"
 	"net/http"
 )
 
@@ -16,7 +16,6 @@ func New() *App {
 	var app App
 
 	app.initLogger()
-	app.initDB()
 	app.initAPI()
 
 	return &app
